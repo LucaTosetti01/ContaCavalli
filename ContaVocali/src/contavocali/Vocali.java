@@ -80,7 +80,7 @@ public class Vocali {
      * @brief riporta a zero il numero delle vocali presenti in num
      *
      */
-    public void reset() {
+    public synchronized void reset() {
         for (int i = 0; i < num.length; i++) {
             num[i] = 0;
         }

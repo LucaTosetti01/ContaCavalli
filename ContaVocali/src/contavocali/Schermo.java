@@ -29,7 +29,7 @@ public class Schermo {
         return buffer.toString();
     }
 
-    void reset() {
+    synchronized void reset() {
         buffer.clear();
     }
 }

@@ -55,7 +55,7 @@ public class DatiCondivisi {
         semaforoVisualizza=new Semaphore(0);
     }
 
-    public void resetDatiCondivisi() {
+    public synchronized void resetDatiCondivisi() {
         for (int i = 0; i < thTerminato.length; i++) {
             thTerminato[i] = false;
         }
@@ -72,7 +72,7 @@ public class DatiCondivisi {
      *
      * @return true se tutti i thread sono terminati
      */
-    public boolean sonoFinitiTutti() {
+    public synchronized boolean sonoFinitiTutti() {
         boolean ris = true;
         for (int i = 0; i < 5; i++) {
             if (!thTerminato[i]) {
@@ -88,11 +88,11 @@ public class DatiCondivisi {
      * imposta come terminato il thread corrispondente alla vocale data
      * @param vocale di cui impostare il thread come terminato
      */
-    public void setFinito(char vocale) {
+    public synchronized void setFinito(char vocale) {
         thTerminato[vocali.getIndex(vocale)] = true;
     }
 
-    public String getStringSchermo() {
+    public synchronized String getStringSchermo() {
         return schermo.toString();
     }
     
